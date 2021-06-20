@@ -42,6 +42,11 @@ namespace APICatalogoJogos.Services
 
             var jogo = await _jogoRepository.GetId(id);
 
+            if (jogo == null)
+            {
+                return null;
+            }
+            
             return new JogoViewModel
             {
 
@@ -87,16 +92,7 @@ namespace APICatalogoJogos.Services
 
             await _jogoRepository.Put(entidadeJogo);
         }
-        public async Task Patch(Guid id, double preco)
-        {
-            var entidadeJogo = await _jogoRepository.GetId(id);
-
-            
-            entidadeJogo.Preco = preco;
-
-            await _jogoRepository.Put(entidadeJogo);
-        }
-        public async Task Delete(Guid id)
+              public async Task Delete(Guid id)
         {
 
             await _jogoRepository.Delete(id);

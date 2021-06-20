@@ -12,7 +12,7 @@ namespace APICatalogoJogos.Repository
         Task<List<Jogo>> Get(int pagina, int quantidade);
         Task<Jogo> GetId(Guid id);
         Task Delete(Guid id);
-        Task<Jogo> Post(Jogo jogo);
+        Task Post(Jogo jogo);
         Task Put(Jogo jogo);
       
     }

@@ -12,7 +12,10 @@ using System.Threading.Tasks;
 namespace APICatalogoJogos.Controllers.v1
 {
     [Route("api/v1/[controller]")]
+   
     [ApiController]
+    [Produces("application/json")]
+    [ApiConventionType(typeof(DefaultApiConventions))]
     public class JogosController : ControllerBase
     {
         private readonly IJogoService _jogoService;
@@ -22,6 +25,9 @@ namespace APICatalogoJogos.Controllers.v1
             _jogoService = jogoService;
         }
 
+        /// <summary>
+        /// Lista os filmes de forma paginada
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<JogoViewModel>>> Get( [FromQuery ,Range(1,int.MaxValue)] int pagina = 1, [FromQuery, Range(1, 50)] int quantidade =5 )
         {
@@ -33,6 +39,10 @@ namespace APICatalogoJogos.Controllers.v1
             }
             return Ok(jogos);
         }
+        /// <summary>
+        /// Lista um filme pelo ID.
+        /// </summary>
+       
         [HttpGet("{idJogo:guid}")]
         public async Task<ActionResult<JogoViewModel>> GetId([FromRoute]Guid idJogo)
         {
@@ -44,7 +54,10 @@ namespace APICatalogoJogos.Controllers.v1
 
             return Ok(jogo);
         }
-       
+        /// <summary>
+        /// Insere um filme.
+        /// </summary>
+
         [HttpPost]
         public async Task<ActionResult<JogoViewModel>> Post([FromBody]JogoInputModel jogoInputModel)
         {
@@ -54,6 +67,11 @@ namespace APICatalogoJogos.Controllers.v1
 
 
         }
+        /// <summary>
+        /// Altera  um filme usando o ID.
+        /// </summary>
+          
+
         [HttpPut("{idJogo:guid}")]
         public async Task<ActionResult> Put([FromRoute] Guid idJogo, [FromBody]JogoInputModel jogoImputModel)
         {
@@ -62,16 +80,13 @@ namespace APICatalogoJogos.Controllers.v1
     }
 
 
-    [HttpPatch("{idJogo:guid}/preco/{preco:double}")]
-        public async Task<ActionResult> Patch([FromRoute]Guid idJogo, [FromBody]double preco)
-        {
-            await _jogoService.Patch(idJogo, preco);
-            return Ok();
+        /// <summary>
+        /// Deleta um filme.
+        /// </summary>
 
-        }
-    
-[HttpDelete]
-    public async Task<ActionResult> Delete([FromRoute]Guid idJogo)
+        [HttpDelete]
+       
+        public async Task<ActionResult> Delete([FromRoute]Guid idJogo)
         {
             await _jogoService.Delete(idJogo);
             return Ok();

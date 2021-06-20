@@ -1,3 +1,6 @@
+using APICatalogoJogos.InputModel;
+using APICatalogoJogos.Repository;
+using APICatalogoJogos.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,7 +12,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace APICatalogoJogos
@@ -26,11 +31,27 @@ namespace APICatalogoJogos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddScoped<IJogoService, JogoService>();
+            services.AddScoped<IJogoRepository,JogoRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "APICatalogoJogos", Version = "v1" });
+               
+                c.SwaggerDoc("v1", new OpenApiInfo 
+                { Title = "APICatalogoJogos",
+                  Version = "v1",
+                  Description ="API de Jogos ASP.NET CORE",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Fernando Cesar",
+                        Email = string.Empty,
+                        Url = new Uri("https://www.linkedin.com/in/fernando-c%C3%A9sar-8015a6213/"),
+                    }
+
+                });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 

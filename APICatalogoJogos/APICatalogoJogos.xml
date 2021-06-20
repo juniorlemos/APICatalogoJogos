@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>APICatalogoJogos</name>
+    </assembly>
+    <members>
+        <member name="M:APICatalogoJogos.Controllers.v1.JogosController.Get(System.Int32,System.Int32)">
+            <summary>
+            Lista os filmes de forma paginada
+            </summary>
+        </member>
+        <member name="M:APICatalogoJogos.Controllers.v1.JogosController.GetId(System.Guid)">
+            <summary>
+            Lista um filme pelo ID.
+            </summary>
+        </member>
+        <member name="M:APICatalogoJogos.Controllers.v1.JogosController.Post(APICatalogoJogos.InputModel.JogoInputModel)">
+            <summary>
+            Insere um filme.
+            </summary>
+        </member>
+        <member name="M:APICatalogoJogos.Controllers.v1.JogosController.Put(System.Guid,APICatalogoJogos.InputModel.JogoInputModel)">
+            <summary>
+            Altera  um filme usando o ID.
+            </summary>
+        </member>
+        <member name="M:APICatalogoJogos.Controllers.v1.JogosController.Delete(System.Guid)">
+            <summary>
+            Deleta um filme.
+            </summary>
+        </member>
+    </members>
+</doc>

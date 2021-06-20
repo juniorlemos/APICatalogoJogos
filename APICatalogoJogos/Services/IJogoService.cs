@@ -15,7 +15,7 @@ namespace APICatalogoJogos.Services
         Task Delete(Guid id);
         Task<JogoViewModel>Post(JogoInputModel jogo);
         Task Put(Guid id,JogoInputModel jogo );
-        Task Patch(Guid id,  Double preco);
+       
 
     }
 }
