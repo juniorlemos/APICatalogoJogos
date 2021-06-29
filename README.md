@@ -3,8 +3,8 @@ Desafio implementação de uma API de jogos realizada no Bootcamp da DIO
 
 Tecnologias Utilizadas
 
--Framework dotnet core 5
--Swagger
+- Framework dotnet core 5
+- Swagger
 
 
 GET /api/v1/Jogos            -Lista os jogos de forma paginada
