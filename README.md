@@ -5,6 +5,7 @@ Tecnologias Utilizadas
 
 - Framework dotnet core 5
 - Swagger
+- Postman - Utilizado para testes
 
 
 GET /api/v1/Jogos            -Lista os jogos de forma paginada
