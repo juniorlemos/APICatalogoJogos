@@ -1,5 +1,5 @@
 # APICatalogoJogos
-Desafio implementação de uma API de jogos realizada no Bootcamp da DIO 
+Implementação de uma API de jogos realizada no Bootcamp da DIO 
 
 Tecnologias Utilizadas
 
