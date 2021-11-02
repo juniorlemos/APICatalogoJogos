@@ -3,7 +3,7 @@ Implementação de uma API de jogos realizada no Bootcamp da DIO
 
 Tecnologias Utilizadas
 
-- Framework dotnet core 5
+- Dotnet core 5
 - Swagger
 - Postman - Utilizado para testes
 
